@@ -1,0 +1,20 @@
+.weather {
+  background-color: white;
+  color: black;
+  margin: 30px;
+}
+img {
+  position: absolute;
+  left: 250px;
+  top: 300px;
+}
+.weather-details {
+  border: 2px solid black;
+  padding-left: 10px;
+  margin-top: 10px;
+  height: 80vh;
+}
+.flex {
+  display: flex;
+  gap: 15px;
+}
