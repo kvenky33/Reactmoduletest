@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import { useLocation } from "react-router-dom";
+
 import "./weather.css";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -9,13 +9,11 @@ const Weather = () => {
   const dispatch = useDispatch();
   const [weatherData, setWeatherData] = useState(null);
   const { city } = useParams();
-  // const location = useLocation();
+
   const APIKEY = "deb594186fb643db9af55844230403";
 
   useEffect(() => {
     async function fetchWeatherData() {
-      // const city = new URLSearchParams(location.search).get("city");
-
       const url = `https://api.weatherapi.com/v1/current.json?key=${APIKEY}&q=${city}`;
       const response = await fetch(url);
       const data = await response.json();
@@ -100,36 +98,6 @@ const Weather = () => {
           </p>
         </div>
       )}
-      {/* <div className="weather-details">
-        <p>
-          condition : {weatherData.current.condition.text}{" "}
-          <img src={weatherData.current.condition.icon} />
-        </p>
-
-        <p>Temperatuure:{weatherData.current.temp_c}</p>
-        <p>
-          Pressure : {weatherData.current.pressure_in} in/
-          {weatherData.current.pressure_mb} mb
-        </p>
-        <p>
-          Precip: {weatherData.current.precip_in} in/
-          {weatherData.current.precip_mm} mm
-        </p>
-
-        <p>Humidity : {weatherData.current.humidity}</p>
-        <p>Feelslike : {weatherData.current.feelslike_c}°C/</p>
-        <p>
-          Visibility : {weatherData.current.vis_km}km/
-          {weatherData.current.vis_miles}miles
-        </p>
-        <p>UV :{weatherData.current.uv}</p>
-        <p>
-          Gust :{weatherData.current.gust_kph}kph/{weatherData.current.gust_kph}{" "}
-          mph{" "}
-        </p>
-      </div> */}
-      {/* <div>Current temperature: {weatherData.current.temp_c}°C</div>
-      <div>Current condition: {weatherData.current.condition.text}</div> */}
     </div>
   );
 };
